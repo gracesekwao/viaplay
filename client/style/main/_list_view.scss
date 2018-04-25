@@ -1,0 +1,19 @@
+.ListView {
+  .Header {
+    .Filters {
+      display: block;
+    }
+
+    @media screen and (max-width: 1024px) {
+      margin-bottom: 2em;
+    }
+  }
+
+  .Footer {
+    display: block;
+  }
+
+  @media screen and (max-width: 1024px) {
+    margin-bottom: 2em;
+  }
+}

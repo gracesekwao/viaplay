@@ -1,0 +1,59 @@
+$spacingSize: 2em;
+
+@mixin showsPerRow($showsPerRow) {
+  $percentile: 100/$showsPerRow;
+
+  width: calc(
+    #{$percentile}% - #{$spacingSize - ($spacingSize * $percentile / 100)}
+  );
+
+  &:nth-child(#{$showsPerRow}n) {
+    margin-right: 0;
+  }
+
+  @media screen and (max-width: 512px) {
+    width: calc(#{$percentile}% - #{2 * $spacingSize});
+
+    &:nth-child(#{$showsPerRow}n) {
+      margin-left: $spacingSize;
+      margin-right: $spacingSize;
+    }
+  }
+}
+
+.ShowsList {
+  box-sizing: border-box;
+  margin: 0 5em;
+  line-height: 0;
+
+
+
+  @media screen and (max-width: 1280px) {
+    .ShowsListItem {
+      @include showsPerRow(2);
+    }
+  }
+
+  @media screen and (max-width: 512px) {
+    margin: 0 auto;
+
+    .ShowsListItem {
+      @include showsPerRow(1);
+    }
+
+    .Thumbnail {
+      height: auto;
+    }
+  }
+}
+
+.ShowsListItem {
+  display: inline-block;
+  @include showsPerRow(4);
+
+  margin-right: $spacingSize;
+  margin-bottom: $spacingSize;
+
+  line-height: 1;
+  background-color: get-color('white');
+}

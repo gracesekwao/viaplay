@@ -1,0 +1,41 @@
+
+@import 'helpers/vars';
+@import 'helpers/functions';
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/loading';
+@import 'layout/message';
+@import 'layout/metadata';
+@import 'layout/thumbnail';
+@import 'layout/shows_list';
+@import 'main/list_view';
+
+
+html,
+body {
+  background-color: #eee;
+}
+
+body {
+  overflow-x: auto;
+  overflow-y: scroll;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#app {
+  width: 100%;
+  margin: 0 auto;
+
+  @media screen and (max-width: 1024px) {
+    margin: 0;
+  }
+}
+
+.ListView,
+.NotFoundView {
+  margin-top: 6em;
+
+  @media screen and (max-width: 1024px) {
+    margin-top: 0;
+  }
+}
